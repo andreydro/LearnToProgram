@@ -214,3 +214,35 @@ pet.putToBed
 pet.putToBed
 pet.putToBed
 pet.putToBed
+
+puts
+
+# In process...Building OrangeTree program
+
+class OrangeTree
+  def initialize
+    @age = 0
+    @orange = "Orange tree"
+    @dead = false
+    @almostDead = 10
+
+    puts @orange + ' started to grow'
+  end
+
+  def height   # Height of the tree
+    puts @orange + ' is already ' + @age + ' meters height!'
+    oneYearPasses
+  end
+
+  def oneYearPasses #Increase tree age each year
+    @age += 1
+  end
+
+  def countTheOranges
+
+  end
+
+  def pickAnOrange
+
+  end
+end
