@@ -148,3 +148,33 @@ profile 'count till million' do
     number = number + 1
   end
 end
+puts
+
+# Grandfather watch
+def Watch
+  yield
+end
+
+Watch do
+  duration = Time.now.strftime("%I")
+  duration = duration.to_i
+  duration.times {puts 'Boom!'}
+end
+puts
+
+#other program
+def log someBlock
+  puts 'Execution of block ' + someBlock.to_s + ' has started'
+  someBlock.call
+  puts 'Execution of block '+ someBlock.to_s + ' has finished'
+end
+smallBlock = Proc.new do
+  puts 'Other block'
+end
+
+bigBlock = Proc.new do
+  log smallBlock
+end
+
+
+log bigBlock
