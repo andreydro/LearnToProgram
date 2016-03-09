@@ -220,29 +220,30 @@ puts
 # In process...Building OrangeTree program
 
 class OrangeTree
-  def initialize
+  def initialize(tree)
+    @tree = tree
+    @height = 1
     @age = 0
-    @orange = "Orange tree"
-    @dead = false
-    @almostDead = 10
-
-    puts @orange + ' started to grow'
+    puts tree + ' has been planted'
   end
-
-  def height   # Height of the tree
-    puts @orange + ' is already ' + @age + ' meters height!'
-    oneYearPasses
-  end
-
-  def oneYearPasses #Increase tree age each year
+  def yearPasses
+    puts 'One year passed'
     @age += 1
+    @height += 2
+    puts @tree + ' is now ' + @age.to_s + ' year old'
   end
 
-  def countTheOranges
-
-  end
-
-  def pickAnOrange
-
+  def height
+    puts 'A tree is slowly growing...'
+    puts @tree + ' is now ' + @height.to_s + ' meters high'
   end
 end
+a = OrangeTree.new 'An orange tree'
+a.yearPasses
+a.height
+a.yearPasses
+a.height
+a.yearPasses
+a.height
+a.yearPasses
+a.height
