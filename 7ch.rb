@@ -1,13 +1,17 @@
-names = ['Ada','Bell', 'Chris']
+names = [
+'Ada', 'Bell', 'Chris'
+]
 puts names
 puts names[0]
 puts names[1]
 puts names[2]
 puts names[3]
 
-languages = ['English', 'German', 'Ruby']
+languages = [
+'English', 'German', 'Ruby'
+]
 languages.each do |lang|
-  puts 'I like '+ lang + '!'
+  puts 'I like ' + lang + '!'
   puts 'Do you?'
 end
 puts 'So, let`s listen opinion about C++`'
@@ -16,9 +20,11 @@ puts'...'
 3.times do
   puts 'hip hip hooray'
 end
-puts''
+puts ''
 
-foods = ['Artishok', 'Briosh', 'Caramel']
+foods = [
+'Artishok', 'Briosh', 'Caramel'
+]
 puts foods
 puts
 puts foods.to_s
@@ -83,7 +89,10 @@ puts arr
 puts
 
 # New content program
-content = ['Content','Chapter 1: Integers','Chapter 2: Symbles','Chapter 3: Variables', 'page 1', 'page 72', 'page 118']
+content = [
+  'Content', 'Chapter 1: Integers', 'Chapter 2: Symbles', 
+  'Chapter 3: Variables', 'page 1', 'page 72', 'page 118'
+]
 lineWidth = 50
 puts content[0].center(lineWidth)
 puts

@@ -27,11 +27,11 @@ puts 'OK, what is your last name?'
 last = gets.chomp
 puts 'OK,what is your father name?'
 father = gets.chomp
-puts 'A glad to meet you '+ first +' '+ last +' '+ father+'!'
+puts 'A glad to meet you ' + first + ' ' + last + ' ' + father + '!'
 
 puts 'What is your favorite number?'
 number = gets.chomp.to_i
 bigger = 1 + number
 puts number.to_s + ' is cool integer'
-puts 'But ' +bigger.to_s+ ' is better.'
+puts 'But ' + bigger.to_s + ' is better.'
 

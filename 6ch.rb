@@ -9,11 +9,11 @@ puts ''
 
 puts 'Hello, what is your name?'
 name = gets.chomp
-puts 'Hello, '+name+ '.'
+puts 'Hello, ' + name + '.'
 if name == 'Chris'
   puts 'What a cute name!'
 end
-puts''
+puts ''
 
 puts 'I preditor of fate. Tell me your name: '
 name = gets.chomp
@@ -23,15 +23,15 @@ else
   puts 'Your future... Oh my God! Look at the watch!'
   puts 'I really need to go, I`m sorry'
 end
-puts''
+puts ''
 
 puts 'Hello and welcome in 7th grade on English lesson'
 puts 'My name Mrs. Gaberd. And your name...?'
 name = gets.chomp
 if name == name.capitalize
-  puts 'Seat down, please, '+name+'.'
+  puts 'Seat down, please, ' + name + '.'
 else
-  puts name+'? Did you mean: '+name.capitalize+', didn`t you?'
+  puts name + '? Did you mean: ' + name.capitalize + ', didn`t you?'
   puts 'Don`t you know how to write your name?'
   reply = gets.chomp
   if reply == 'yes'
@@ -40,20 +40,20 @@ else
     puts 'GET OUT!'
   end
 end
-puts''
+puts ''
 
 puts 'Print a command'
-command=''
+command = ''
 while command != 'bye'
   puts command
   command = gets.chomp
 end
 puts 'Come again'
-puts''
+puts ''
 
 puts 'Hello, what is you name?'
 name = gets.chomp
-puts 'Hello, '+name+'.'
+puts 'Hello, ' + name + '.'
 if (name == 'Chris'or name =='Katy')
   puts 'What a cute name!'
 end
@@ -83,7 +83,7 @@ start = gets.chomp.to_i
 puts 'Enter finish year'
 finish = gets.chomp.to_i
 (start..finish).each do |year|
-  puts year if year%4==0 && (year%100!=0 || year%400==0)
+  puts year if year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
 end
 
 
