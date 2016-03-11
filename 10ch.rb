@@ -7,79 +7,84 @@ toast.call
 toast.call
 puts
 
-doYouLike = Proc.new do |aGoodThing|
-  puts 'I really love '+aGoodThing+'!'
+do_you_like = Proc.new do |a_good_thing|
+  puts 'I really love '+a_good_thing+'!'
 end
-doYouLike.call 'Chocolade'
-doYouLike.call 'Rubin'
+do_you_like.call 'Chocolade'
+do_you_like.call 'Rubin'
 puts
 
-def doSelfImportantly someProc
+def do_self_importantly some_proc
   puts 'Everybody freeze! I need to do something...'
-  someProc.call
-  puts 'Attention everybody, i`ve done. Go on execute your deals`'
+  some_proc.call
+  puts 'Attention everybody, I`ve done. Go on execute your deals`'
 end
-sayHello = Proc.new do
-  puts 'hello'
+say_hello = Proc.new do
+  puts 'Hello'
 end
-sayGoodBye = Proc.new do
-  puts 'goodBye'
+say_good_bye = Proc.new do
+  puts 'GoodBye'
 end
-doSelfImportantly sayHello
-doSelfImportantly sayGoodBye
+do_self_importantly say_hello
+do_self_importantly say_good_bye
 puts
 
 # other program
-def maybeDo someProc
+def maybe_do some_proc
   if rand(2) == 0
-    someProc.call
+    some_proc.call
   end
 end
-def twiceDo someProc
-  someProc.call
-  someProc.call
+
+def twice_do some_proc
+  some_proc.call
+  some_proc.call
 end
+
 wink = Proc.new do
   puts '<wink>'
 end
+
 glance = Proc.new do
   puts '<glance>'
 end
 
-maybeDo wink
-maybeDo glance
-twiceDo wink
-twiceDo glance
+maybe_do wink
+maybe_do glance
+twice_do wink
+twice_do glance
 puts
 
 # other program
-def doUntilFalse firstInput, someProc
-  input = firstInput
-  output = firstInput
+def do_until_false first_input, some_proc
+  input = first_input
+  output = first_input
 
   while output
     input = output
-    output = someProc.call input
+    output = some_proc.call input
   end
 
   input
 end
 
-buildArrayOfSquares = Proc.new do |array|
-  lastNumber = array.last
-  if lastNumber <= 0
+build_array_of_squares = Proc.new do |array|
+  last_number = array.last
+  if last_number <= 0
     false
   else
     array.pop
-    array.push lastNumber*lastNumber
-    array.push lastNumber-1
+    array.push last_number * last_number
+    array.push last_number - 1
   end
 end
-alwaysFalse = Proc.new do |justIgnoreMe|
+
+always_false = Proc.new do |just_ignore_me|
   false
 end
-puts doUntilFalse([5], buildArrayOfSquares).inspect
-puts doUntilFalse('I am writing this at 3 A.M.; somebody cut me down!', alwaysFalse)
+
+puts do_until_false([5], build_array_of_squares).inspect
+puts do_until_false('I am writing this at 3 A.M.; somebody cut me down!', always_false)
 puts
 
 #other program
@@ -88,50 +93,57 @@ def compose proc1, proc2
     proc2.call(proc1.call(x))
   end
 end
-squareIt = Proc.new do |x|
+
+square_it = Proc.new do |x|
   x*x
 end
-doubleIt = Proc.new do |x|
+
+double_it = Proc.new do |x|
   x + x
 end
-doubleThenSquare = compose doubleIt, squareIt
-squareThenDouble = compose squareIt, doubleIt
-puts doubleThenSquare.call(5)
-puts squareThenDouble.call(5)
+
+double_then_square = compose double_it, square_it
+square_then_double = compose square_it, double_it
+puts double_then_square.call(5)
+puts square_then_double.call(5)
 puts
 
 # other program
 class Array
-  def eachEven (&wasABlock_nowAProc)
-    isEven = true
+
+  def each_even (&was_a_block_now_a_proc)
+    is_even = true
     self.each do |object|
-      if isEven
-        wasABlock_nowAProc.call object
+      if is_even
+        was_a_block_now_a_proc.call object
       end
 
-      isEven = (not isEven)
+      is_even = (not is_even)
     end
   end
+
 end
-['apples','rotten apples','cherry','durian'].eachEven do |fruit|
-  puts 'Mmm! I like cakes with '+fruit+', do you?'
+['apples', 'rotten apples', 'cherry', 'durian'].each_even do |fruit|
+  puts 'Mmm! I like cakes with ' + fruit + ', do you?'
 end
 
-[1,2,3,4,5].eachEven do |oddBall|
-  puts oddBall.to_s+' - odd number'
+[1, 2, 3, 4, 5].each_even do |odd_ball|
+  puts odd_ball.to_s + ' - odd number'
 end
+
 puts
 
 #other program
-def profile descriptionOfBlock, &block
-  startTime = Time.now
+def profile(description_of_block, &block)
+  start_time = Time.now
 
   block.call
 
-  duration = Time.now - startTime
+  duration = Time.now - start_time
 
-  puts descriptionOfBlock+':  '+duration.to_s+' sec.'
+  puts description_of_block+':  ' + duration.to_s + ' sec.'
 end
+
 profile '25000 doubling' do
   number = 1
 
@@ -139,8 +151,9 @@ profile '25000 doubling' do
     number = number + number
   end
 
-  puts number.to_s.length.to_s+' numbers'
+  puts number.to_s.length.to_s + ' numbers'
 end
+
 profile 'count till million' do
   number = 0
 
@@ -148,33 +161,36 @@ profile 'count till million' do
     number = number + 1
   end
 end
+
 puts
 
 # Grandfather watch
-def Watch
+def watch
   yield
 end
 
-Watch do
+watch do
   duration = Time.now.strftime("%I")
   duration = duration.to_i
   duration.times {puts 'Boom!'}
 end
+
 puts
 
 #other program
-def log someBlock
-  puts 'Execution of block ' + someBlock.to_s + ' has started'
-  someBlock.call
-  puts 'Execution of block '+ someBlock.to_s + ' has finished'
+def log(some_block)
+  puts 'Execution of block ' + some_block.to_s + ' has started'
+  some_block.call
+  puts 'Execution of block '+ some_block.to_s + ' has finished'
 end
-smallBlock = Proc.new do
+
+small_block = Proc.new do
   puts 'Other block'
 end
 
-bigBlock = Proc.new do
-  log smallBlock
+big_block = Proc.new do
+  log small_block
 end
 
 
-log bigBlock
+log big_block

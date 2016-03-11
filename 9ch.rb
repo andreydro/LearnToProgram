@@ -1,9 +1,9 @@
 a = Array.new + [12345]
 b = String.new + 'hello'
 c = Time.new
-puts 'a = '+a.to_s
-puts 'b = '+b.to_s
-puts 'c = '+c.to_s
+puts 'a = ' + a.to_s
+puts 'b = ' + b.to_s
+puts 'c = ' + c.to_s
 puts
 
 time = Time.new
@@ -33,19 +33,19 @@ puts 'Your birth date: ' + birth.to_s
 howold = ((Time.new - birth)/31536000).to_i  #31536000 seconds in one year
 puts 'You are ' + howold.to_s + ' years old.'
 
-colorArray = []
-colorHash = {}
-colorArray[0] = 'red'
-colorArray[1] = 'green'
-colorArray[2] = 'blue'
-colorHash['strings'] = 'red'
-colorHash['numbers'] = 'green'
-colorHash['key words'] = 'blue'
-colorArray.each do |color|
+color_array = []
+color_hash = {}
+color_array[0] = 'red'
+color_array[1] = 'green'
+color_array[2] = 'blue'
+color_hash['strings'] = 'red'
+color_hash['numbers'] = 'green'
+color_hash['key words'] = 'blue'
+color_array.each do |color|
   puts color
 end
-colorHash.each do |codeType, color|
-  puts codeType + ':  ' + color
+color_hash.each do |code_type, color|
+  puts code_type + ':  ' + color
 end
 puts
 
@@ -70,7 +70,9 @@ class Die
     1 + rand(6)
   end
 end
-dice = [Die.new, Die.new]
+dice = [
+  Die.new, Die.new
+    ]
 
 dice.each do |die|
   puts die.roll
@@ -79,16 +81,19 @@ puts
 
 
 class Die
+
   def initialize
     roll
   end
+
   def roll
-    @numberShowing = 1 + rand(6)
+    @number_showing = 1 + rand(6)
   end
 
   def showing
-    @numberShowing
+    @number_showing
   end
+
 end
 die = Die.new
 die.roll
@@ -105,30 +110,30 @@ class Dragon
   def initialize name
     @name = name
     @asleep = false
-    @stuffInBelly = 10  # It`s` full
-    @stuffInIntestine = 0 # It doesn`t need to walk
+    @stuff_in_belly = 10  # It`s` full
+    @stuff_in_intestine = 0 # It doesn`t need to walk
 
     puts @name + ' was born.'
   end
 
   def feed
     puts 'You are feeding ' + @name + '(a).'
-    @stuffInIntestine = 0
-    passageOfTime
+    @stuff_in_intestine = 0
+    passage_of_time
   end
 
   def walk
     puts 'You are walking with ' + @name + '(a)'
-    @stuffInIntestine = 0
-    passageOfTime
+    @stuff_in_intestine = 0
+    passage_of_time
   end
 
-  def putToBed
+  def put_to_bed
     puts 'You are putting '+ @name + '  (a) to bed.'
     @asleep = true
     3.times do
       if @asleep
-        passageOfTime
+        passage_of_time
       end
       if @asleep
         puts @name + 'snoring, filling the room with smoke'
@@ -143,14 +148,14 @@ class Dragon
   def toss
     puts 'You are tossing up ' + @name + '(a) in air'
     puts 'It`s giggling, burning out your eyebrows.'
-    passageOfTime
+    passage_of_time
   end
 
   def rock
     puts 'You are gently swinging ' + @name + '(a)'
     @asleep = true
     puts 'Its fast dozing off... '
-    passageOfTime
+    passage_of_time
     if @asleep
       @asleep = true
       puts '...but wakeing up, when stopped swinging'
@@ -160,17 +165,17 @@ class Dragon
   private
 
   def hungry?
-    @stuffInBelly <= 2
+    @stuff_in_belly <= 2
   end
 
   def poopy?
-    @stuffInIntestine >= 8
+    @stuff_in_intestine >= 8
   end
 
-  def passageOfTime
-    if @stuffInBelly > 0
-      @stuffInBelly = @stuffInBelly - 1
-      @stuffInIntestine = @stuffInIntestine + 1
+  def passage_of_time
+    if @stuff_in_belly > 0
+      @stuff_in_belly = @stuff_in_belly - 1
+      @stuff_in_intestine = @stuff_in_intestine + 1
     else
       if @asleep
         @asleep = false
@@ -180,8 +185,8 @@ class Dragon
       exit
     end
 
-    if @stuffInIntestine >= 10
-      @stuffInIntestine = 0
+    if @stuff_in_intestine >= 10
+      @stuff_in_intestine = 0
       puts 'Oooppss! ' + @name + 'did not good...'
     end
 
@@ -208,25 +213,27 @@ pet = Dragon.new 'Norbert'
 pet.feed
 pet.toss
 pet.walk
-pet.putToBed
+pet.put_to_bed
 pet.rock
-pet.putToBed
-pet.putToBed
-pet.putToBed
-pet.putToBed
+pet.put_to_bed
+pet.put_to_bed
+pet.put_to_bed
+pet.put_to_bed
 
 puts
 
 # In process...Building OrangeTree program
 
 class OrangeTree
+
   def initialize(tree)
     @tree = tree
     @height = 1
     @age = 0
     puts tree + ' has been planted'
   end
-  def yearPasses
+
+  def year_passes
     puts 'One year passed'
     @age += 1
     @height += 2
@@ -237,13 +244,14 @@ class OrangeTree
     puts 'A tree is slowly growing...'
     puts @tree + ' is now ' + @height.to_s + ' meters high'
   end
+
 end
 a = OrangeTree.new 'An orange tree'
-a.yearPasses
+a.year_passes
 a.height
-a.yearPasses
+a.year_passes
 a.height
-a.yearPasses
+a.year_passes
 a.height
-a.yearPasses
+a.year_passes
 a.height
